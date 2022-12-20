@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import NavbarTab from "../components/Home/NavbarTab";
 import Header from "../components/Home/Header";
 
-const FriendScreen = () => {
+const FriendScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={{ backgroundColor: "#fff" }}>
       <Header />
@@ -13,7 +13,7 @@ const FriendScreen = () => {
         <Friends />
       </ScrollView> */}
       {/* <Friends /> */}
-      
+
       <Text>FriendScreen</Text>
     </SafeAreaView>
   );
