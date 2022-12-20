@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import {
-  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -56,6 +55,7 @@ export default function Comment({
   };
 
   useEffect(() => {
+    getTimeDifference();
     const timeout = setTimeout(() => {
       getTimeDifference();
     }, 60000);
@@ -77,8 +77,10 @@ export default function Comment({
           <Text style={styles.content}>{content}</Text>
         </View>
         <View style={styles.additionalInfo}>
-          <Text>{time}</Text>
-          <TouchableOpacity onPress={handlePressReply}>Reply</TouchableOpacity>
+          <Text style={styles.displayTime}>{displayTime}</Text>
+          <TouchableOpacity onPress={handlePressReply}>
+            <Text>Reply</Text>
+          </TouchableOpacity>
         </View>
       </View>
       {showCommentAnswered && commentAnswereds.length > 0 && (
@@ -95,12 +97,37 @@ export default function Comment({
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
+    flexDirection: 'row',
   },
   avatar: {},
-  comment: {},
-  commentBlock: {},
-  username: {},
+  comment: {
+    flex: 1,
+    marginLeft: 12,
+    marginRight: 12,
+  },
+  commentBlock: {
+    backgroundColor: '#DDDDDD',
+    borderRadius: 10,
+    paddingTop: 4,
+    paddingBottom: 8,
+    paddingLeft: 8,
+    paddingRight: 12,
+    alignSelf: 'flex-start',
+  },
+  username: {
+    fontSize: 16,
+    fontWeight: '600',
+  },
   content: {},
-  additionalInfo: {},
+  additionalInfo: {
+    marginTop: 6,
+    marginBottom: 6,
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  displayTime: {
+    color: '#555555',
+    marginRight: 12,
+  },
   commentAnswered: {},
 });
