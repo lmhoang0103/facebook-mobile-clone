@@ -2,8 +2,8 @@ import * as React from "react";
 import { Button, View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import AddPostScreen from "./src/components/AddPostScreen";
-import ImageBrowserScreen from "./src/components/ImageBrowserScreen";
+import AddPostScreen from "./src/screens/AddPostScreen";
+import ImageBrowserScreen from "./src/screens/ImageBrowserScreen";
 
 const Stack = createNativeStackNavigator();
 
