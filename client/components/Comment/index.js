@@ -20,6 +20,7 @@ export default function Comment({
   timestamps,
   commentAnswereds,
   showCommentAnswered,
+  onLongPress,
 }) {
   const [displayTime, setDisplayTime] = useState('');
 
@@ -53,6 +54,9 @@ export default function Comment({
       setDisplayTime('Just now');
     }
   };
+  const handleLongPress = () => {
+    onLongPress && onLongPress();
+  };
 
   useEffect(() => {
     getTimeDifference();
@@ -68,14 +72,16 @@ export default function Comment({
         <MiniAvatar userUrl={user.link} imageUrl={user.avatar} />
       </View>
       <View style={styles.comment}>
-        <View style={styles.commentBlock}>
-          <TouchableWithoutFeedback onPress={handlePressName}>
-            <Text style={styles.username}>
-              {user.firstName} {user.lastName}
-            </Text>
-          </TouchableWithoutFeedback>
-          <Text style={styles.content}>{content}</Text>
-        </View>
+        <TouchableWithoutFeedback onLongPress={handleLongPress}>
+          <View style={styles.commentBlock}>
+            <TouchableWithoutFeedback onPress={handlePressName}>
+              <Text style={styles.username}>
+                {user.firstName} {user.lastName}
+              </Text>
+            </TouchableWithoutFeedback>
+            <Text style={styles.content}>{content}</Text>
+          </View>
+        </TouchableWithoutFeedback>
         <View style={styles.additionalInfo}>
           <Text style={styles.displayTime}>{displayTime}</Text>
           <TouchableOpacity onPress={handlePressReply}>
