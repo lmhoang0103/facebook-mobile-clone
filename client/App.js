@@ -20,7 +20,7 @@ export default function App() {
       <SafeAreaProvider>
         <Stack.Navigator
           initialRouteName="HomeScreen"
-          // screenOptions={screenOption}
+          screenOptions={screenOption}
         >
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="FriendScreen" component={FriendScreen} />

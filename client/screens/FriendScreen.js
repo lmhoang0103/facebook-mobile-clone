@@ -3,6 +3,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NavbarTab from "../components/Home/NavbarTab";
 import Header from "../components/Home/Header";
+import Friends from "../components/Friends/Friends";
 
 const FriendScreen = ({ navigation }) => {
   return (
@@ -12,9 +13,8 @@ const FriendScreen = ({ navigation }) => {
       {/* <ScrollView showsVerticalScrollIndicator={false}>
         <Friends />
       </ScrollView> */}
-      {/* <Friends /> */}
 
-      <Text>FriendScreen</Text>
+      <Friends />
     </SafeAreaView>
   );
 };
