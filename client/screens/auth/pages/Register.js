@@ -38,7 +38,7 @@ function Register(props) {
         if (response?.success) {
             showSuccessMessage('Đăng ký thành công');
             navigate({
-                name: PageName.LOGIN
+                name: PageName.LOGIN,
             });
             return;
         }
@@ -125,8 +125,13 @@ function Register(props) {
                                 <Button
                                     title="Đăng nhập"
                                     type="solid"
-                                    onPress={() => navigate({ name: PageName.LOGIN })}
-                                    buttonStyle={{...styles.button, backgroundColor: colors.inactive}}
+                                    onPress={() =>
+                                        navigate({ name: PageName.LOGIN })
+                                    }
+                                    buttonStyle={{
+                                        ...styles.button,
+                                        backgroundColor: colors.inactive,
+                                    }}
                                     disabled={!isValid}
                                 ></Button>
                             </ScrollView>

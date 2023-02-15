@@ -84,7 +84,7 @@ function EditUser(props) {
             goBack();
             return;
         }
-        showErrorMessage('Thay đổi thông tin thất bại', response?.message);
+        showErrorMessage('Change information failed', response?.message);
     };
 
     return (
@@ -106,26 +106,35 @@ function EditUser(props) {
                     <>
                         <Input
                             label="Họ"
-                            placeholder="Nhập họ"
+                            placeholder="Họ"
                             value={values.firstName}
                             onChangeText={handleChange('firstName')}
                             errorMessage={errors.firstName}
                         />
                         <Input
                             label="Tên"
-                            placeholder="Nhập tên"
+                            placeholder="Tên"
                             value={values.lastName}
                             onChangeText={handleChange('lastName')}
                             errorMessage={errors.lastName}
                         />
                         <Input
+                            label="Số điện thoại"
+                            placeholder="Số điện thoại"
+                            keyboardType="numeric"
+                            value={values.phonenumber}
+                            onChangeText={handleChange('phonenumber')}
+                            errorMessage={errors.phonenumber}
+                            disabled
+                        />
+                        <Input
                             label="Ngày sinh"
-                            placeholder="Nhập ngày sinh"
+                            placeholder="Ngày sinh"
                             value={moment(values.birthday).format('L')}
                             rightIcon={
                                 <Icon
                                     name="edit"
-                                    color="#86939e"
+                                    color="#000000"
                                     type="material"
                                     size={25}
                                     onPress={showDatePicker}
@@ -139,7 +148,7 @@ function EditUser(props) {
                             value={getGender(values.gender)}
                             rightIcon={
                                 <Icon
-                                    color="#86939e"
+                                    color="#000000"
                                     name="edit"
                                     type="material"
                                     size={25}
@@ -147,15 +156,7 @@ function EditUser(props) {
                                 />
                             }
                         />
-                        <Input
-                            label="SĐT"
-                            placeholder="Nhập SĐT"
-                            keyboardType="numeric"
-                            value={values.phonenumber}
-                            onChangeText={handleChange('phonenumber')}
-                            errorMessage={errors.phonenumber}
-                            disabled
-                        />
+
                         <Button
                             type="solid"
                             color={colors.primary}
@@ -165,7 +166,7 @@ function EditUser(props) {
                             disabled={!isValid || !dirty}
                         >
                             <Text style={styles.textButton}>
-                                Thay đổi thông tin
+                                Thay đổi thông tin cá nhân
                             </Text>
                         </Button>
 
@@ -214,7 +215,7 @@ const styles = {
     },
     textButton: {
         fontWeight: '700',
-        color: colors.white,
+        color: colors.black,
     },
     pickerItem: {
         fontWeight: '700',

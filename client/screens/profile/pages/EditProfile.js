@@ -37,10 +37,10 @@ function EditProfile(props) {
                 }),
             ).unwrap();
             if (response?.success) {
-                showSuccessMessage('Đổi ảnh đại diện thành công');
+                showSuccessMessage('Update avatar successfully');
                 return;
             }
-            showErrorMessage('Đổi ảnh đại diện thất bại', response?.message);
+            showErrorMessage('Update avatar failed', response?.message);
         }
     };
 
@@ -54,10 +54,10 @@ function EditProfile(props) {
                 }),
             ).unwrap();
             if (response?.success) {
-                showSuccessMessage('Đổi ảnh bìa thành công');
+                showSuccessMessage('Update cover image successfully');
                 return;
             }
-            showErrorMessage('Đổi ảnh bìa thất bại', response?.message);
+            showErrorMessage('Update cover image failed', response?.message);
         }
     };
 
@@ -66,7 +66,7 @@ function EditProfile(props) {
             <View style={styles.row}>
                 <Text style={styles.label}>Ảnh đại diện</Text>
                 <Button type="clear" onPress={pickAvatar}>
-                    Chỉnh sửa
+                    Edit
                 </Button>
             </View>
             <View style={styles.avatarContainer}>
@@ -84,13 +84,13 @@ function EditProfile(props) {
             </View>
             <Divider
                 width={1}
-                color={colors.gray}
+                color={colors.black}
                 style={{ marginVertical: 14 }}
             />
             <View style={styles.row}>
                 <Text style={styles.label}>Ảnh bìa</Text>
                 <Button type="clear" onPress={pickCover}>
-                    Chỉnh sửa
+                    Edit
                 </Button>
             </View>
             <View style={{ width: '100%' }}>
@@ -112,7 +112,7 @@ function EditProfile(props) {
             />
             <Button
                 type="solid"
-                color={colors.gray}
+                color={colors.black}
                 buttonStyle={styles.button}
                 onPress={() =>
                     navigate({
@@ -132,7 +132,7 @@ function EditProfile(props) {
 
 const styles = {
     container: {
-        paddingHorizontal: '5%',
+        paddingHorizontal: '10%',
     },
     avatarContainer: {
         alignItems: 'center',
@@ -143,20 +143,20 @@ const styles = {
         borderRadius: 5,
     },
     row: {
-        paddingVertical: 10,
+        paddingVertical: 15,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
     label: {
-        fontWeight: '700',
-        fontSize: 17,
+        fontWeight: '400',
+        fontSize: 20,
     },
     button: {
-        borderRadius: 5,
+        borderRadius: 15,
         marginVertical: 10,
     },
     textButton: {
-        fontWeight: '700',
+        fontWeight: '400',
     },
 };
 

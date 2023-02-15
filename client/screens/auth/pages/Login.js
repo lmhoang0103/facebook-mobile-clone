@@ -140,8 +140,13 @@ function Login(props) {
                                 <Button
                                     title="Đăng ký"
                                     type="solid"
-                                    onPress={() => navigate({ name: PageName.REGISTER })}
-                                    buttonStyle={{ ...styles.button, backgroundColor: colors.inactive }}
+                                    onPress={() =>
+                                        navigate({ name: PageName.REGISTER })
+                                    }
+                                    buttonStyle={{
+                                        ...styles.button,
+                                        backgroundColor: colors.inactive,
+                                    }}
                                     disabled={!isValid}
                                 ></Button>
                             </>
