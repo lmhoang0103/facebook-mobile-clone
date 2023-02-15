@@ -1,41 +1,41 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const postsSchema = new mongoose.Schema({
     author: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Users"
+        ref: 'Users',
     },
     described: {
         type: String,
-        required: false
+        required: false,
     },
     images: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Documents"
-        }
+            ref: 'Documents',
+        },
     ],
     videos: [
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Documents"
-        }
+            type: String,
+            required: false,
+        },
     ],
     like: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Users"
-        }
+            ref: 'Users',
+        },
     ],
     countComments: {
         type: Number,
         required: false,
-        default: 0
+        default: 0,
     },
     isLike: {
         type: Boolean,
         required: false,
-        default: false
+        default: false,
     },
 });
 postsSchema.set('timestamps', true);

@@ -16,7 +16,7 @@ const registerValidation = (data) => {
         gender: Joi.string().valid('male', 'female', 'secret'),
         phone: Joi.string().min(10).max(11).required(),
         birthday: Joi.string().pattern(new RegExp('^[0-9-]*$')),
-        photo: Joi.string()
+        photo: Joi.string(),
     });
 
     // function isVietnamesePhoneNumber() {

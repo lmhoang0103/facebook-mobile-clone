@@ -25,7 +25,18 @@ const GROUP_CHAT = 'GROUP_CHAT';
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const MONGO_URI = process.env.MONGO_URI;
-const PORT = process.env.PORT;
+const MONGO_USER = process.env.MONGO_USER;
+const MONGO_PASS = process.env.MONGO_PASS;
+const MONGO_DB_NAME = process.env.MONGO_DB_NAME;
+const PORT = process.env.PORT || 8000;
+const SOCKET_PORT = process.env.SOCKET_PORT;
+
+const NOTIFICATION_MODULE = {
+    POST: 'Posts',
+    COMMENT: 'PostComment',
+    FRIEND: 'Friends'
+}
+
 module.exports = {
     GENDER_MALE,
     GENDER_FEMALE,
@@ -36,13 +47,17 @@ module.exports = {
     ROLE_INVENTORY,
     JWT_SECRET,
     MONGO_URI,
+    MONGO_USER,
+    MONGO_PASS,
+    MONGO_DB_NAME,
     PORT,
+    SOCKET_PORT,
     STATUS_PAID,
     STATUS_UNPAID,
     DOCUMENT_TYPE_VIDEO,
     DOCUMENT_TYPE_IMAGE,
     DOCUMENT_TYPE_OTHER,
     PRIVATE_CHAT,
-    GROUP_CHAT
-}
-
+    GROUP_CHAT,
+    NOTIFICATION_MODULE,
+};

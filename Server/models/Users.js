@@ -1,13 +1,13 @@
-const mongoose = require("mongoose");
-const {GENDER_SECRET} = require("../constants/constants");
-const {GENDER_FEMALE} = require("../constants/constants");
-const {GENDER_MALE} = require("../constants/constants");
+const mongoose = require('mongoose');
+const { GENDER_SECRET } = require('../constants/constants');
+const { GENDER_FEMALE } = require('../constants/constants');
+const { GENDER_MALE } = require('../constants/constants');
 
 const usersSchema = new mongoose.Schema({
     phonenumber: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
     },
     username: {
         type: String,
@@ -37,7 +37,7 @@ const usersSchema = new mongoose.Schema({
     },
     birthday: {
         type: Date,
-        required: false
+        required: false,
     },
     description: {
         type: String,
@@ -69,14 +69,26 @@ const usersSchema = new mongoose.Schema({
     },
     blocked_inbox: {
         type: Array,
-        required: false
+        required: false,
     },
-    blocked_diary: {
+    blocked: {
         type: Array,
-        required: false
+        required: false,
+    },
+    isActivated: {
+        type: Boolean,
+        default: false,
+    },
+    confirmationToken: {
+        type: String,
+        required: false,
+    },
+    confirmationEmail: {
+        type: String,
+        required: true,
     },
 });
 
-usersSchema.index({phonenumber: 'text'});
+usersSchema.index({ phonenumber: 'text' });
 usersSchema.set('timestamps', true);
 module.exports = mongoose.model('Users', usersSchema);

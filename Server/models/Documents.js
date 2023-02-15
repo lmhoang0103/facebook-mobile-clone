@@ -1,9 +1,9 @@
 const {
     DOCUMENT_TYPE_VIDEO,
     DOCUMENT_TYPE_IMAGE,
-    DOCUMENT_TYPE_OTHER
+    DOCUMENT_TYPE_OTHER,
 } = require('../constants/constants');
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const documentsSchema = new mongoose.Schema({
     fileName: {
@@ -33,14 +33,10 @@ const documentsSchema = new mongoose.Schema({
     // },
     type: {
         type: String,
-        enum: [
-            DOCUMENT_TYPE_VIDEO,
-            DOCUMENT_TYPE_IMAGE,
-            DOCUMENT_TYPE_OTHER
-        ],
+        enum: [DOCUMENT_TYPE_VIDEO, DOCUMENT_TYPE_IMAGE, DOCUMENT_TYPE_OTHER],
         required: false,
-        default: DOCUMENT_TYPE_OTHER
-    }
+        default: DOCUMENT_TYPE_OTHER,
+    },
 });
 documentsSchema.set('timestamps', true);
 module.exports = mongoose.model('Documents', documentsSchema);

@@ -1,49 +1,34 @@
-const usersController = require("../controllers/Users");
-const {asyncWrapper} = require("../utils/asyncWrapper");
-const express = require("express");
+const usersController = require('../controllers/Users');
+const { asyncWrapper } = require('../utils/asyncWrapper');
+const express = require('express');
 const usersRoutes = express.Router();
-const ValidationMiddleware = require("../middlewares/validate");
-const auth = require("../middlewares/auth");
+const ValidationMiddleware = require('../middlewares/validate');
+const auth = require('../middlewares/auth');
 
+usersRoutes.post('/register', asyncWrapper(usersController.register));
 usersRoutes.post(
-    "/register",
-    asyncWrapper(usersController.register)
+    '/activate-account',
+    asyncWrapper(usersController.activateAccount)
 );
+usersRoutes.post('/login', asyncWrapper(usersController.login));
+usersRoutes.post('/edit', auth, asyncWrapper(usersController.edit));
 usersRoutes.post(
-    "/login",
-    asyncWrapper(usersController.login)
-);
-usersRoutes.post(
-    "/edit",
+    '/change-password',
     auth,
-    asyncWrapper(usersController.edit),
+    asyncWrapper(usersController.changePassword)
 );
-usersRoutes.post(
-    "/change-password",
-    auth,
-    asyncWrapper(usersController.changePassword),
-);
-usersRoutes.get(
-    "/show",
-    auth,
-    asyncWrapper(usersController.show),
-);
+usersRoutes.get('/show', auth, asyncWrapper(usersController.show));
+
+usersRoutes.get('/show/:id', auth, asyncWrapper(usersController.show));
 
 usersRoutes.get(
-    "/show/:id",
+    '/showbyphone/:phonenumber',
     auth,
-    asyncWrapper(usersController.show),
+    asyncWrapper(usersController.showByPhone)
 );
 
-usersRoutes.get(
-    "/showbyphone/:phonenumber",
-    auth,
-    asyncWrapper(usersController.showByPhone),
-);
-
-
-usersRoutes.post("/set-block-user", auth, usersController.setBlock);
-usersRoutes.post("/set-block-diary", auth, usersController.setBlockDiary);
-usersRoutes.post("/search", auth, usersController.searchUser);
+usersRoutes.post('/set-block-user', auth, usersController.setBlock);
+usersRoutes.post('/set-block-diary', auth, usersController.setBlockInbox);
+usersRoutes.post('/search', auth, usersController.searchUser);
 
 module.exports = usersRoutes;

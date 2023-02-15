@@ -1,31 +1,27 @@
-const chatController = require("../controllers/Chats");
-const {asyncWrapper} = require("../utils/asyncWrapper");
-const express = require("express");
+const chatController = require('../controllers/Chats');
+const { asyncWrapper } = require('../utils/asyncWrapper');
+const express = require('express');
 const chatsRoutes = express.Router();
-const auth = require("../middlewares/auth");
+const auth = require('../middlewares/auth');
 
 chatsRoutes.get(
-    "/getMessages/:chatId",
+    '/getMessages/:chatId',
     auth,
-    asyncWrapper(chatController.getMessages),
+    asyncWrapper(chatController.getMessages)
 );
 
 chatsRoutes.get(
-    "/getMessagesbyfriendId/:friendId",
+    '/getMessagesbyfriendId/:friendId',
     auth,
-    asyncWrapper(chatController.getMessagesByFriendId),
+    asyncWrapper(chatController.getMessagesByFriendId)
 );
 
 chatsRoutes.delete(
-    "/deleteChat/:chatId",
+    '/deleteChat/:chatId',
     auth,
-    asyncWrapper(chatController.deleteChat),
+    asyncWrapper(chatController.deleteChat)
 );
 
-chatsRoutes.get(
-    "/getChats",
-    auth,
-    asyncWrapper(chatController.getChats),
-);
+chatsRoutes.get('/getChats', auth, asyncWrapper(chatController.getChats));
 
 module.exports = chatsRoutes;

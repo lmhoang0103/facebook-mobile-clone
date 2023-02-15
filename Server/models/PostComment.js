@@ -1,22 +1,22 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const postCommentSchema = new mongoose.Schema({
     post: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Posts"
+        ref: 'Posts',
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Users"
+        ref: 'Users',
     },
     content: {
         type: String,
-        required: false
+        required: false,
     },
     commentAnswered: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "PostComment"
-    }
+        ref: 'PostComment',
+    },
 });
 postCommentSchema.set('timestamps', true);
 module.exports = mongoose.model('PostComment', postCommentSchema);

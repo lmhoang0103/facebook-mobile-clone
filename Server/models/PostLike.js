@@ -1,18 +1,18 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const postLikeSchema = new mongoose.Schema({
     post: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Posts"
+        ref: 'Posts',
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Users"
+        ref: 'Users',
     },
     extraData: {
         type: JSON,
-        required: false
-    }
+        required: false,
+    },
 });
 postLikeSchema.set('timestamps', true);
 module.exports = mongoose.model('PostLike', postLikeSchema);
