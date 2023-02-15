@@ -105,11 +105,6 @@ function Friends({ navigate }) {
 
     const list = [
         {
-            title: 'Nhắn tin',
-            iconName: 'message',
-            onPress: () => sendMessage(),
-        },
-        {
             title: 'Chặn',
             iconName: 'block',
             onPress: () => blockUser(targetId),

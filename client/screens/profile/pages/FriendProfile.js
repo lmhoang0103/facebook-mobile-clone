@@ -256,14 +256,6 @@ function FriendProfile(props) {
                     <Button
                         color={colors.gray}
                         buttonStyle={styles.button}
-                        onPress={openChatDetailScreen}
-                    >
-                        <Icon name="message" color="black" />
-                        <Text style={styles.textButton}> Nhắn tin</Text>
-                    </Button>
-                    <Button
-                        color={colors.gray}
-                        buttonStyle={styles.button}
                         onPress={blockUser}
                     >
                         <Icon name="block" color="black" />

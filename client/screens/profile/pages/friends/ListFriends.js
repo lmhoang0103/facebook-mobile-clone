@@ -6,7 +6,7 @@ import Friends from './Friends';
 import Blocked from './Blocked';
 import Request from './Request';
 
-const tabName = ['Tất cả', 'Chặn', 'Lời mời kết bạn'];
+const tabName = ['Tất cả', 'Lời mời kết bạn', 'Chặn'];
 
 function ListFriends(props) {
     const [index, setIndex] = React.useState(0);
@@ -52,10 +52,10 @@ function ListFriends(props) {
                     <Friends navigate={navigate} />
                 </TabView.Item>
                 <TabView.Item style={styles.tavView}>
-                    <Blocked navigate={navigate} />
+                    <Request navigate={navigate} />
                 </TabView.Item>
                 <TabView.Item style={styles.tavView}>
-                    <Request navigate={navigate} />
+                    <Blocked navigate={navigate} />
                 </TabView.Item>
             </TabView>
         </>

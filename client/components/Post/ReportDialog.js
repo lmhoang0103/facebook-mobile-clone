@@ -18,7 +18,7 @@ function ReportDialog(props) {
     const report = async (body) => {
         const response = await reportPost(postId, body);
         if (response?.success) {
-            showSuccessMessage('Báo cáo bài viết thành công');
+            showSuccessMessage('Cảm ơn bạn vì đã báo cáo cho chúng tôi biết!');
             if (onSubmit) {
                 onSubmit();
             }
@@ -33,7 +33,7 @@ function ReportDialog(props) {
     return (
         <>
             <Dialog isVisible={isVisible} onBackdropPress={onBackdropPress}>
-                <Dialog.Title title="Lý do báo cáo:" />
+                <Dialog.Title title="Báo cáo:" />
                 <Formik
                     initialValues={initialValues}
                     onSubmit={(values) => report(values)}
@@ -47,20 +47,9 @@ function ReportDialog(props) {
                     }) => (
                         <>
                             <Input
-                                name="subject"
-                                label="Tiêu đề"
-                                placeholder="Nhập tiêu đề"
-                                placeholderTextColor={colors.gray}
-                                labelStyle={styles.label}
-                                inputStyle={styles.input}
-                                onChangeText={handleChange('subject')}
-                                value={values.subject}
-                                errorMessage={errors.subject}
-                            />
-                            <Input
                                 name="details"
-                                label="Chi tiết"
-                                placeholder="Nhập thông tin chi tiết"
+                                label="Nội dung"
+                                placeholder="Hãy nhập phản hồi của bạn"
                                 placeholderTextColor={colors.gray}
                                 labelStyle={styles.label}
                                 inputStyle={styles.input}
