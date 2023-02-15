@@ -13,7 +13,7 @@ function PostList(props) {
                 <FlatList
                     data={postList}
                     ItemSeparatorComponent={() => (
-                        <View style={{ height: 16 }} />
+                        <View style={{ height: 6 }} />
                     )}
                     renderItem={({ item }) => <Post post={item} />}
                 />

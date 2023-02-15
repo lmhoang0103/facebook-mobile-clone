@@ -16,7 +16,7 @@ export const PageName = {
     LIST_FRIENDS: 'Danh sách bạn bè',
     EDIT_USER: 'Chỉnh sửa thông tin cá nhân',
     CREATE_POST_PAGE: 'Thêm bài viết',
-    POST_DETAIL_PAGE: 'Chi tiết bài viết',
+    POST_DETAIL_PAGE: 'Bình luận',
     FRIEND_PROFILE: 'Trang cá nhân bạn bè',
     EDIT_POST_PAGE: 'Chỉnh sửa bài viết',
     SEARCH_PAGE: 'Tìm kiếm',

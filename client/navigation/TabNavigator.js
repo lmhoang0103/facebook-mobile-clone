@@ -15,9 +15,9 @@ import { tabNavigatorRoutes } from './routers';
 const Tab = createMaterialTopTabNavigator();
 
 const screenOptions = ({ route }) => ({
-    tabBarActiveTintColor: 'white',
+    tabBarActiveTintColor: colors.primary,
     tabBarInactiveTintColor: colors.inactive,
-    tabBarStyle: { backgroundColor: colors.primary, height: 50 },
+    tabBarStyle: { backgroundColor: '#fff', height: 50, shadowColor: '#0000' },
     tabBarShowLabel: false,
 
     tabBarBackground: () => (
@@ -46,17 +46,24 @@ function TabNavigator(props) {
     };
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <SafeAreaView
+            style={{ flex: 1, backgroundColor: '#fff', text: '#333' }}
+        >
             <View
                 style={{
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    padding: 8,
+                    paddingLeft: 8,
+                    paddingRight: 8,
+                    paddingTop: 6,
+                    paddingBottom: 6,
                 }}
             >
-                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>MyApp</Text>
+                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
+                    Facebook
+                </Text>
                 <Icon
                     name="search"
                     onPress={navigateToSearchScreen}
@@ -67,6 +74,7 @@ function TabNavigator(props) {
                 screenOptions={screenOptions}
                 initialRouteName={PageName.HOME}
                 backBehavior="initialRoute"
+                sceneContainerStyle={{ shadowColor: '#fff' }}
             >
                 {tabNavigatorRoutes.map((route) => {
                     return (

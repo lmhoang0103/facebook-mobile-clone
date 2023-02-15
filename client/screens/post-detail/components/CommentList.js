@@ -10,7 +10,6 @@ function CommentList(props) {
         <View style={styles.container} {...rest}>
             <FlatList
                 data={comments}
-                ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
                 renderItem={({ item }) => <Comment comment={item} />}
             />
         </View>
