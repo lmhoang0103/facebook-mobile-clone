@@ -10,7 +10,7 @@ const {
 const uploadFile = {};
 
 uploadFile.matchesFileBase64 = (fileBase64) => {
-    const matches = fileBase64.match(/^data:([A-Za-z-+/]+);base64,(.+)$/);
+    const matches = fileBase64.data.match(/^data:([A-Za-z-+/]+);base64,(.+)$/);
     if (!Array.isArray(matches) || matches.length !== 3) {
         console.log(matches.length);
         return false;
@@ -19,7 +19,7 @@ uploadFile.matchesFileBase64 = (fileBase64) => {
 };
 
 uploadFile.uploadFile = (fileBase64) => {
-    const matches = fileBase64.match(/^data:([A-Za-z-+/]+);base64,(.+)$/),
+    const matches = fileBase64.data.match(/^data:([A-Za-z-+/]+);base64,(.+)$/),
         response = {};
 
     if (!Array.isArray(matches) || matches.length !== 3) {

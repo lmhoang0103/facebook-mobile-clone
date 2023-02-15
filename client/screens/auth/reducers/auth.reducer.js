@@ -65,6 +65,7 @@ export const authSlice = createSlice({
         });
         builder.addCase(handleLogin.fulfilled, (state, action) => {
             state.isLoading = false;
+            state.loginUser = action.payload.data;
         });
         builder.addCase(handleRegister.pending, (state, action) => {
             state.isLoggedIn = false;

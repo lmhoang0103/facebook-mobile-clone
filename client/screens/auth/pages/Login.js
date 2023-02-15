@@ -25,9 +25,9 @@ function Login(props) {
     const dispatch = useDispatch();
     const isLoading = useSelector(selectIsLoading);
     //navigation
-    const { navigation, route } = props;
+    const { navigation } = props;
     //functions of navigate to/back
-    const { navigate, goBack } = navigation;
+    const { navigate } = navigation;
 
     const initialValues = {
         phonenumber: '',

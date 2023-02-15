@@ -182,12 +182,6 @@ function Profile(props) {
                 color={colors.gray}
                 style={{ marginVertical: 14 }}
             />
-            <View>
-                <Text style={[styles.label, { paddingHorizontal: '5%' }]}>
-                    Đăng bài
-                </Text>
-                <CreatePost />
-            </View>
             <ScrollView horizontal={true}>
                 <PostList />
             </ScrollView>

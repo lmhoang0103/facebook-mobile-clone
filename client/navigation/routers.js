@@ -141,13 +141,6 @@ export const tabNavigatorRoutes = [
         ),
     },
     {
-        name: PageName.CHAT,
-        component: Chat,
-        icon: ({ color, size }) => (
-            <Icon name="chat" color={color} size={size} />
-        ),
-    },
-    {
         name: PageName.PROFILE,
         component: Profile,
         icon: ({ color, size }) => (

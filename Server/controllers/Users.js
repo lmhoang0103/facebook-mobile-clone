@@ -124,7 +124,6 @@ usersController.activateAccount = async (req, res, next) => {
 
 usersController.login = async (req, res, next) => {
   try {
-    console.log(123123);
     const { phonenumber, password } = req.body;
     const user = await UserModel.findOne({
       phonenumber: phonenumber,

@@ -49,7 +49,7 @@ function SearchPage(props) {
                     renderItem={({ item }) => (
                         <UserSearchItem
                             item={item}
-                            type="People you may know"
+                            type="People"
                         />
                     )}
                 />
