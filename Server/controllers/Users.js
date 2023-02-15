@@ -14,8 +14,6 @@ usersController.register = async (req, res, next) => {
     const {
       phonenumber,
       password,
-      username,
-      confirmationEmail,
       firstName,
       lastName,
     } = req.body;
@@ -27,12 +25,6 @@ usersController.register = async (req, res, next) => {
     if (user) {
       return res.status(httpStatus.BAD_REQUEST).json({
         message: 'Phone number already exists',
-      });
-    }
-
-    if (!confirmationEmail) {
-      return res.status(httpStatus.BAD_REQUEST).json({
-        message: 'Invalid confirmation email!',
       });
     }
 
@@ -48,11 +40,8 @@ usersController.register = async (req, res, next) => {
     user = new UserModel({
       phonenumber: phonenumber,
       password: hashedPassword,
-      username: username,
       avatar: '60c39f54f0b2c4268eb53367',
       cover_image: '60c39eb8f0b2c4268eb53366',
-      confirmationEmail,
-      confirmationToken,
       isActivated: true,
       firstName,
       lastName,
@@ -64,7 +53,6 @@ usersController.register = async (req, res, next) => {
         data: {
           id: savedUser._id,
           phonenumber: savedUser.phonenumber,
-          username: savedUser.username,
           avatar: avatar,
           cover_image: coverImage,
           firstName: savedUser.firstName,

@@ -56,7 +56,7 @@ function TabNavigator(props) {
                     padding: 8,
                 }}
             >
-                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>MyApp</Text>
+                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Facebook</Text>
                 <Icon
                     name="search"
                     onPress={navigateToSearchScreen}

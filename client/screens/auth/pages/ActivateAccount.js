@@ -71,9 +71,9 @@ function ActivateAccount(props) {
                             <>
                                 <Input
                                     name="phonenumber"
-                                    label="Số điện thoại"
+                                    label="SĐT"
                                     value={values.phonenumber}
-                                    placeholder="Nhập số điện thoại"
+                                    placeholder="Nhập SĐT"
                                     keyboardType="numeric"
                                     onChangeText={handleChange('phonenumber')}
                                     placeholderTextColor={colors.gray}

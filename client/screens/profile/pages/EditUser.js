@@ -148,8 +148,8 @@ function EditUser(props) {
                             }
                         />
                         <Input
-                            label="Số điện thoại"
-                            placeholder="Nhập số điện thoại"
+                            label="SĐT"
+                            placeholder="Nhập SĐT"
                             keyboardType="numeric"
                             value={values.phonenumber}
                             onChangeText={handleChange('phonenumber')}

@@ -10,7 +10,7 @@ export const showSuccessMessage = (title = 'Thành công', message = '') => {
     });
 };
 
-export const showErrorMessage = (title = 'Lỗi', message = '') => {
+export const showErrorMessage = (title = 'Đã có lỗi xảy ra', message = '') => {
     Toast.show({
         type: 'error',
         text1: title,

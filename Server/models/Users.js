@@ -9,10 +9,6 @@ const usersSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    username: {
-        type: String,
-        required: true,
-    },
     password: {
         type: String,
         required: true,
@@ -78,14 +74,6 @@ const usersSchema = new mongoose.Schema({
     isActivated: {
         type: Boolean,
         default: false,
-    },
-    confirmationToken: {
-        type: String,
-        required: false,
-    },
-    confirmationEmail: {
-        type: String,
-        required: true,
     },
 });
 

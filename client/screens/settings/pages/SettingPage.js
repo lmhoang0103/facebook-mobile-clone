@@ -1,92 +1,45 @@
 import { screen } from '@constants';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Switch, Text } from '@rneui/themed';
-import { useEffect, useMemo } from 'react';
+import { Button } from '@rneui/themed';
 import { View } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
-import { useDispatch, useSelector } from 'react-redux';
+import { PageName } from '@/navigation/constants';
 import { DismissKeyboardView } from '../../../components';
-import {
-    fetchSettings,
-    selectSettingsState,
-} from '../reducers/settings.reducer';
+import { handleLogout, setIsLoggedIn } from '../../auth/reducers/auth.reducer';
+import { useDispatch } from 'react-redux';
 
 function SettingPage(props) {
+    const { navigation } = props;
+    const { navigate } = navigation;
     const dispatch = useDispatch();
-    const { navigation, route } = props;
-    const settingState = useSelector(selectSettingsState);
-
-    const settings = useMemo(() => {
-        return [
-            {
-                title: 'Tin nhắn',
-                value: settingState.message ?? true,
-                onChange: (value) => {
-                    AsyncStorage.setItem('noti-message', JSON.stringify(value));
-                    dispatch(fetchSettings());
-                },
-            },
-            {
-                title: 'Thích bài viết',
-                value: settingState.like ?? true,
-                onChange: (value) => {
-                    AsyncStorage.setItem('noti-like', JSON.stringify(value));
-                    dispatch(fetchSettings());
-                },
-            },
-            {
-                title: 'Bình luận bài viết',
-                value: settingState.comment ?? true,
-                onChange: (value) => {
-                    AsyncStorage.setItem('noti-comment', JSON.stringify(value));
-                    dispatch(fetchSettings());
-                },
-            },
-            {
-                title: 'Lời mời kêt bạn',
-                value: settingState.addFriend ?? true,
-                onChange: (value) => {
-                    AsyncStorage.setItem(
-                        'noti-addFriend',
-                        JSON.stringify(value),
-                    );
-                    dispatch(fetchSettings());
-                },
-            },
-        ];
-    }, [settingState]);
-
-    useEffect(() => {
-        dispatch(fetchSettings());
-    }, [settings]);
+    const logout = () => {
+        dispatch(handleLogout());
+        navigate({
+            name: PageName.LOGIN,
+        });
+    }
 
     return (
         <DismissKeyboardView style={styles.container}>
-            <Text
+            <View
                 style={{
                     paddingLeft: 16,
+                    paddingRight: 16,
                     width: '100%',
                     fontSize: 24,
                     fontWeight: 'bold',
+                    position: 'absolute',
+                    bottom: 40,
                 }}
             >
-                Cài đặt thông báo
-            </Text>
-            <FlatList
-                style={{ width: '100%', padding: 16 }}
-                data={settings}
-                renderItem={({ item }) => {
-                    return (
-                        <View style={styles.item}>
-                            <Text>{item.title}</Text>
-                            <Switch
-                                value={item.value}
-                                onValueChange={item.onChange}
-                            />
-                        </View>
-                    );
+            <Button 
+                type="solid"
+                containerStyle={styles.buttonContainer}
+                title="Đăng xuất"
+                titleStyle={{
+                    ...styles.item,
                 }}
+                onPress={logout}
             />
+            </View>
         </DismissKeyboardView>
     );
 }

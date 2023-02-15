@@ -107,8 +107,8 @@ function Login(props) {
                             <>
                                 <Input
                                     name="phonenumber"
-                                    label="Số điện thoại"
-                                    placeholder="Nhập số điện thoại"
+                                    label="SĐT"
+                                    placeholder="Nhập SĐT"
                                     keyboardType="numeric"
                                     placeholderTextColor={colors.gray}
                                     labelStyle={styles.label}
@@ -137,17 +137,16 @@ function Login(props) {
                                     buttonStyle={styles.button}
                                     disabled={!isValid}
                                 ></Button>
+                                <Button
+                                    title="Đăng ký"
+                                    type="solid"
+                                    onPress={() => navigate({ name: PageName.REGISTER })}
+                                    buttonStyle={{ ...styles.button, backgroundColor: colors.inactive }}
+                                    disabled={!isValid}
+                                ></Button>
                             </>
                         )}
                     </Formik>
-                </View>
-                <View>
-                    <Text
-                        style={styles.text}
-                        onPress={() => navigate({ name: PageName.REGISTER })}
-                    >
-                        Chưa có tài khoản? Đăng ký
-                    </Text>
                 </View>
             </DismissKeyboardView>
         </>
@@ -181,6 +180,7 @@ const styles = {
         alignSelf: 'center',
     },
     button: {
+        marginBottom: 30,
         backgroundColor: colors.grayBlue,
     },
     text: {

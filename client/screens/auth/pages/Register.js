@@ -38,10 +38,7 @@ function Register(props) {
         if (response?.success) {
             showSuccessMessage('Đăng ký thành công');
             navigate({
-                name: PageName.ACTIVATE_ACCOUNT_PAGE,
-                params: {
-                    phonenumber: body.phonenumber,
-                },
+                name: PageName.LOGIN
             });
             return;
         }
@@ -73,39 +70,15 @@ function Register(props) {
                             <ScrollView style={{ marginBottom: 50 }}>
                                 <Input
                                     name="phonenumber"
-                                    label="Số điện thoại"
+                                    label="SĐT"
                                     value={values.phonenumber}
-                                    placeholder="Nhập số điện thoại"
+                                    placeholder="Nhập SĐT"
                                     keyboardType="numeric"
                                     onChangeText={handleChange('phonenumber')}
                                     placeholderTextColor={colors.gray}
                                     labelStyle={styles.label}
                                     inputStyle={styles.input}
                                     errorMessage={errors.phonenumber}
-                                ></Input>
-                                <Input
-                                    name="username"
-                                    label="Tên tài khoản"
-                                    value={values.username}
-                                    placeholder="Nhập tên tài khoản"
-                                    onChangeText={handleChange('username')}
-                                    placeholderTextColor={colors.gray}
-                                    labelStyle={styles.label}
-                                    inputStyle={styles.input}
-                                    errorMessage={errors.username}
-                                ></Input>
-                                <Input
-                                    name="confirmationEmail"
-                                    label="Email xác minh"
-                                    value={values.confirmationEmail}
-                                    placeholder="Nhập địa chỉ email xác minh"
-                                    onChangeText={handleChange(
-                                        'confirmationEmail',
-                                    )}
-                                    placeholderTextColor={colors.gray}
-                                    labelStyle={styles.label}
-                                    inputStyle={styles.input}
-                                    errorMessage={errors.confirmationEmail}
                                 ></Input>
                                 <Input
                                     name="password"
@@ -149,17 +122,16 @@ function Register(props) {
                                     buttonStyle={styles.button}
                                     disabled={!isValid}
                                 ></Button>
+                                <Button
+                                    title="Đăng nhập"
+                                    type="solid"
+                                    onPress={() => navigate({ name: PageName.LOGIN })}
+                                    buttonStyle={{...styles.button, backgroundColor: colors.inactive}}
+                                    disabled={!isValid}
+                                ></Button>
                             </ScrollView>
                         )}
                     </Formik>
-                </View>
-                <View>
-                    <Text
-                        style={styles.text}
-                        onPress={() => navigate({ name: PageName.LOGIN })}
-                    >
-                        Đã có tài khoản? Đăng nhập
-                    </Text>
                 </View>
             </DismissKeyboardView>
         </>
@@ -194,6 +166,7 @@ const styles = {
     },
     button: {
         backgroundColor: colors.grayBlue,
+        marginBottom: 30,
     },
     text: {
         color: colors.white,
