@@ -239,6 +239,7 @@ function Post(props) {
                 />
             </View>
             <BottomSheet
+                backdropStyle={{ backgroundColor: '#d3d3d390' }}
                 isVisible={isShowPostMenu}
                 onBackdropPress={() => setIsShowPostMenu(false)}
             >

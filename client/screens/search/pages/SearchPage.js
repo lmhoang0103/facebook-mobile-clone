@@ -2,7 +2,7 @@ import { debounce } from 'lodash';
 import { useEffect } from 'react';
 import { FlatList, ScrollView, TextInput } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
-import { screen } from '../../../constants';
+import { colors, screen } from '../../../constants';
 import MessageSearchItem from '../components/MessageSearchItem';
 import PostSearchItem from '../components/PostSearchItem';
 import UserSearchItem from '../components/UserSearchItem';
@@ -22,7 +22,7 @@ function SearchPage(props) {
         navigation.setOptions({
             headerTitle: () => (
                 <TextInput
-                    style={{ width: '100%' }}
+                    style={{ width: '100%', marginTop: 40 }}
                     placeholder="Nhập để tìm kiếm"
                     onChangeText={(text) => searchDebounce(text)}
                 />
@@ -33,46 +33,59 @@ function SearchPage(props) {
     }, []);
 
     return (
-        <ScrollView>
-            <ScrollView horizontal={true}>
-                <FlatList
-                    data={searchState.friendList}
-                    renderItem={({ item }) => (
-                        <UserSearchItem item={item} type="Friend" />
-                    )}
-                />
+        <>
+            <TextInput
+                style={{ 
+                    width: '100%', 
+                    backgroundColor: colors.gray, 
+                    height: 40, 
+                    paddingLeft: 15, 
+                    paddingRight: 15, 
+                }}
+                placeholder="Nhập để tìm kiếm"
+                onChangeText={(text) => searchDebounce(text)}
+            />
+            <ScrollView>
+                <ScrollView horizontal={true}>
+                    <FlatList
+                        data={searchState.friendList}
+                        renderItem={({ item }) => (
+                            <UserSearchItem item={item} type="Friend" />
+                        )}
+                    />
+                </ScrollView>
+                <ScrollView horizontal={true}>
+                    <FlatList
+                        style={{ width: screen.width }}
+                        data={searchState.peopleList}
+                        renderItem={({ item }) => (
+                            <UserSearchItem
+                                item={item}
+                                type="People"
+                            />
+                        )}
+                    />
+                </ScrollView>
+                <ScrollView horizontal={true}>
+                    <FlatList
+                        style={{ width: screen.width }}
+                        data={searchState.postList}
+                        renderItem={({ item }) => (
+                            <PostSearchItem item={item} type="Post" />
+                        )}
+                    />
+                </ScrollView>
+                <ScrollView horizontal={true}>
+                    <FlatList
+                        style={{ width: screen.width }}
+                        data={searchState.messageList}
+                        renderItem={({ item }) => (
+                            <MessageSearchItem item={item} type="Message" />
+                        )}
+                    />
+                </ScrollView>
             </ScrollView>
-            <ScrollView horizontal={true}>
-                <FlatList
-                    style={{ width: screen.width }}
-                    data={searchState.peopleList}
-                    renderItem={({ item }) => (
-                        <UserSearchItem
-                            item={item}
-                            type="People"
-                        />
-                    )}
-                />
-            </ScrollView>
-            <ScrollView horizontal={true}>
-                <FlatList
-                    style={{ width: screen.width }}
-                    data={searchState.postList}
-                    renderItem={({ item }) => (
-                        <PostSearchItem item={item} type="Post" />
-                    )}
-                />
-            </ScrollView>
-            <ScrollView horizontal={true}>
-                <FlatList
-                    style={{ width: screen.width }}
-                    data={searchState.messageList}
-                    renderItem={({ item }) => (
-                        <MessageSearchItem item={item} type="Message" />
-                    )}
-                />
-            </ScrollView>
-        </ScrollView>
+        </>
     );
 }
 

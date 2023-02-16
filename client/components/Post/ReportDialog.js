@@ -83,7 +83,7 @@ const styles = {
         color: colors.text,
     },
     button: {
-        backgroundColor: colors.grayBlue,
+        backgroundColor: colors.primary,
     },
 };
 export default ReportDialog;

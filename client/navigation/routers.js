@@ -155,10 +155,17 @@ export const tabNavigatorRoutes = [
         ),
     },
     {
+        name: PageName.SEARCH_PAGE,
+        component: SearchPage,
+        icon: ({ color, size }) => (
+            <Icon name="search" color={color} size={size} />
+        ),
+    },
+    {
         name: PageName.SETTING_PAGE,
         component: SettingPage,
         icon: ({ color, size }) => (
             <Icon name="settings" color={color} size={size} />
         ),
-    },
+    }
 ];

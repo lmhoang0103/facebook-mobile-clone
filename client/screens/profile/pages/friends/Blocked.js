@@ -27,12 +27,12 @@ function Blocked(props) {
     const list = [
         {
             title: 'Bỏ chặn',
-            iconName: 'add-circle-outline',
+            iconName: 'lock-open',
             onPress: () => unlockUser(targetId),
         },
         {
             title: 'Hủy',
-            iconName: 'highlight-off',
+            iconName: 'close',
             onPress: () => setIsVisible(false),
         },
     ];

@@ -79,7 +79,6 @@ function EditProfile(props) {
             <View style={styles.avatarContainer}>
                 <Avatar
                     size={130}
-                    rounded
                     source={
                         loginUser?.avatar
                             ? {
