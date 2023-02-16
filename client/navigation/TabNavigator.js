@@ -47,22 +47,6 @@ function TabNavigator(props) {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-            <View
-                style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: 8,
-                }}
-            >
-                <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Facebook</Text>
-                <Icon
-                    name="search"
-                    onPress={navigateToSearchScreen}
-                    style={{ padding: 8 }}
-                />
-            </View>
             <Tab.Navigator
                 screenOptions={screenOptions}
                 initialRouteName={PageName.HOME}
