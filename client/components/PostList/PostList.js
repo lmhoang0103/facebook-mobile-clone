@@ -13,7 +13,7 @@ function PostList(props) {
                 <FlatList
                     data={postList}
                     ItemSeparatorComponent={() => (
-                        <View style={{ height: 16 }} />
+                        <View style={{ height: 6 }} />
                     )}
                     renderItem={({ item }) => <Post post={item} />}
                 />
@@ -22,7 +22,7 @@ function PostList(props) {
                     <Image
                         style={styles.emptyImage}
                         source={{
-                            uri: 'https://icon-library.com/images/no-data-icon/no-data-icon-10.jpg',
+                            uri: 'https://icon-library.com/images/icon-loading/icon-loading-0.jpg',
                         }}
                         resizeMode="contain"
                     />

@@ -134,7 +134,7 @@ function EditPostPage(props) {
                             onChangeText={handleChange('described')}
                             value={values.described}
                             errorMessage={errors.described}
-                            containerStyle={styles.textareaContainer}
+                            // containerStyle={styles.textareaContainer}
                             inputStyle={styles.textarea}
                             multiline={true}
                             numberOfLines={images || post.images ? 3 : 10}

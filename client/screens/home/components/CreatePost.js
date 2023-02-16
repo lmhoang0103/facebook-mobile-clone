@@ -50,10 +50,13 @@ const styles = {
     },
     content: {
         marginLeft: 8,
-        height: 56,
+        height: 40,
         flex: 1,
         backgroundColor: '#E5E5E5',
         padding: 16,
+        paddingTop: 8,
+        paddingBottom: 8,
+        borderRadius: 100,
     },
 };
 

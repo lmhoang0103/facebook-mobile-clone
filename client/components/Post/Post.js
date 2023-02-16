@@ -18,6 +18,7 @@ import { ActivityIndicator, View } from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import ReadMore from 'react-native-read-more-text';
 import { useDispatch, useSelector } from 'react-redux';
+import { colors } from '../../constants';
 import { SocketProvider } from '../../plugins/socket';
 import { selectLoginUser } from '../../screens/auth/reducers/auth.reducer';
 
@@ -206,6 +207,7 @@ function Post(props) {
                         name={'thumb-up'}
                         size={14}
                         style={{ marginRight: 4 }}
+                        color={isLike ? colors.primary : '#333'}
                     />
                     <Text>{like?.length || 0}</Text>
                 </View>
@@ -221,10 +223,14 @@ function Post(props) {
                     buttonStyle={styles.buttonStyle}
                     title="Thích"
                     icon={
-                        <Icon name={isLike ? 'thumb-up' : 'thumb-up-off-alt'} />
+                        <Icon
+                            name={isLike ? 'thumb-up' : 'thumb-up-off-alt'}
+                            color={isLike ? colors.primary : '#333'}
+                        />
                     }
                     titleStyle={{
                         ...styles.title,
+                        color: isLike ? colors.primary : '#333',
                     }}
                     onPress={actionLike}
                 />
@@ -234,7 +240,10 @@ function Post(props) {
                     buttonStyle={styles.buttonStyle}
                     title="Bình luận"
                     icon={<Icon name="chat-bubble" />}
-                    titleStyle={styles.title}
+                    titleStyle={{
+                        ...styles.title,
+                        color: '#333',
+                    }}
                     onPress={actionComment}
                 />
             </View>
@@ -243,7 +252,14 @@ function Post(props) {
                 isVisible={isShowPostMenu}
                 onBackdropPress={() => setIsShowPostMenu(false)}
             >
-                <Button title="Báo cáo" onPress={onReportPost}></Button>
+                <Button
+                    onPress={onReportPost}
+                    buttonStyle={{ backgroundColor: '#fff' }}
+                    titleStyle={{ color: 'red' }}
+                >
+                    <Icon name="warning" color="red" />
+                    Báo cáo
+                </Button>
                 {isAuthor(post.author, loginUser) && (
                     <>
                         <Button title="Chỉnh sửa" onPress={onEditPost}></Button>
@@ -312,17 +328,19 @@ const styles = {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        borderTop: '2px solid #E5E5E5',
     },
     buttonContainer: {
         flex: 1,
-        padding: 8,
+        padding: 4,
+        backgroundColor: '#fff',
     },
     buttonStyle: {
-        backgroundColor: '#E5E5E5',
+        backgroundColor: '#fff',
     },
     title: {
         marginLeft: 8,
-        color: 'black',
+        fontSize: 14,
     },
 };
 
