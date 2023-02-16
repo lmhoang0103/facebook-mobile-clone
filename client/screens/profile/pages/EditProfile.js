@@ -63,12 +63,19 @@ function EditProfile(props) {
 
     return (
         <View style={styles.container}>
-            <View style={styles.row}>
-                <Text style={styles.label}>Ảnh đại diện</Text>
-                <Button type="clear" onPress={pickAvatar}>
-                    Edit
-                </Button>
-            </View>
+            <Button
+                type="clear"
+                color={colors.black}
+                buttonStyle={styles.button}
+                onPress={() =>
+                    navigate({
+                        name: PageName.EDIT_USER,
+                    })
+                }
+            >
+                <Icon name="edit" color="black" />
+                <Text style={styles.textButton}> Thông tin cá nhân</Text>
+            </Button>
             <View style={styles.avatarContainer}>
                 <Avatar
                     size={130}
@@ -82,18 +89,15 @@ function EditProfile(props) {
                     }
                 />
             </View>
-            <Divider
-                width={1}
-                color={colors.black}
-                style={{ marginVertical: 14 }}
-            />
-            <View style={styles.row}>
-                <Text style={styles.label}>Ảnh bìa</Text>
-                <Button type="clear" onPress={pickCover}>
-                    Edit
-                </Button>
-            </View>
-            <View style={{ width: '100%' }}>
+            <Button
+                type="clear"
+                onPress={pickAvatar}
+                buttonStyle={styles.btnedit}
+            >
+                Chỉnh sửa ảnh đại diện
+            </Button>
+
+            <View style={{ width: '100%', paddingTop: 50 }}>
                 <Image
                     style={styles.cover}
                     source={
@@ -105,36 +109,29 @@ function EditProfile(props) {
                     }
                 />
             </View>
-            <Divider
-                width={1}
-                color={colors.gray}
-                style={{ marginVertical: 14 }}
-            />
             <Button
-                type="solid"
-                color={colors.black}
-                buttonStyle={styles.button}
-                onPress={() =>
-                    navigate({
-                        name: PageName.EDIT_USER,
-                    })
-                }
+                type="clear"
+                onPress={pickCover}
+                buttonStyle={styles.btnedit}
             >
-                <Icon name="edit" color="black" />
-                <Text style={styles.textButton}>
-                    {' '}
-                    Chỉnh sửa thông tin cá nhân
-                </Text>
+                Chỉnh sửa ảnh bìa
             </Button>
         </View>
     );
 }
 
 const styles = {
+    btnedit: {
+        borderBottomColor: '#000',
+        borderBottomWidth: 1,
+
+        color: '#000',
+    },
     container: {
-        paddingHorizontal: '10%',
+        paddingHorizontal: '5%',
     },
     avatarContainer: {
+        paddingTop: 50,
         alignItems: 'center',
     },
     cover: {
@@ -152,8 +149,8 @@ const styles = {
         fontSize: 20,
     },
     button: {
-        borderRadius: 15,
-        marginVertical: 10,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
     },
     textButton: {
         fontWeight: '400',
