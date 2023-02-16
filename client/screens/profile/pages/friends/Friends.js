@@ -122,15 +122,15 @@ function Friends({ navigate }) {
         <>
             <Input
                 returnKeyType="search"
-                placeholder="Search"
+                placeholder="Tìm kiếm"
                 leftIcon={<Icon name="search" />}
-                inputStyle={{ fontSize: 17 }}
+                inputStyle={{ fontSize: 10 }}
                 containerStyle={{ height: 55 }}
                 inputContainerStyle={styles.inputSearchContainer}
                 onChangeText={searchDebounce}
             />
             <Text style={[styles.name, { fontSize: 20, paddingBottom: 10 }]}>
-                {filteredList.length} người bạn
+                {filteredList.length} friends
             </Text>
             <FlatList
                 data={filteredList}

@@ -6,7 +6,7 @@ import Friends from './Friends';
 import Blocked from './Blocked';
 import Request from './Request';
 
-const tabName = ['Tất cả', 'Lời mời kết bạn', 'Chặn'];
+const tabName = ['Tất cả', 'Lời mời kết bạn', 'Danh sách chặn'];
 
 function ListFriends(props) {
     const [index, setIndex] = React.useState(0);
@@ -29,17 +29,9 @@ function ListFriends(props) {
                             key={tab}
                             title={tab}
                             titleStyle={(active) => ({
-                                color: active ? colors.white : colors.text,
+                                color: active ? colors.text : colors.gray,
                                 fontSize: 14,
-                                paddingHorizontal: 5,
-                            })}
-                            buttonStyle={(active) => ({
-                                backgroundColor: active
-                                    ? colors.grayBlue
-                                    : colors.gray,
-                                borderRadius: 60,
-                                padding: 0,
-                                margin: 5,
+                                paddingHorizontal: 15,
                             })}
                             containerStyle={{ backgroundColor: undefined }}
                         />

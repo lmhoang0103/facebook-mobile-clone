@@ -63,11 +63,7 @@ function Blocked(props) {
     return (
         <>
             <Text style={styles.label}>Người bị chặn</Text>
-            <Text style={styles.text}>
-                Khi bạn chặn ai đó, họ sẽ không xem được nội dung bạn đăng trên
-                dòng thời gian của mình, bắt đầu cuộc trò chuyện với bạn hay
-                thêm bạn làm bạn bè.
-            </Text>
+
             {blockedUser.length === 0 ? (
                 <Text>Bạn chưa chặn bất kỳ ai</Text>
             ) : (
