@@ -83,7 +83,7 @@ function CreatePostPage(props) {
             <View style={styles.header}>
                 <Avatar
                     rounded
-                    size={60}
+                    size={50}
                     source={
                         loginUser?.avatar
                             ? {
@@ -135,6 +135,14 @@ function CreatePostPage(props) {
                             multiline={true}
                             numberOfLines={images ? 3 : 10}
                         />
+                        <View style={styles.pickImage}>
+                            <Button
+                                onPress={pickImages}
+                                buttonStyle={styles.pickImageButton}
+                            >
+                                <Icon name="image" color="#07da63" size={28} />
+                            </Button>
+                        </View>
                     </View>
                 )}
             </Formik>
@@ -157,15 +165,6 @@ function CreatePostPage(props) {
                     keyExtractor={(item, index) => index.toString()}
                 />
             )}
-
-            <View style={styles.pickImage}>
-                <Button
-                    onPress={pickImages}
-                    buttonStyle={styles.pickImageButton}
-                >
-                    <Icon name="image" color="black" size={28} />
-                </Button>
-            </View>
         </View>
     );
 }
@@ -179,7 +178,6 @@ const styles = {
     header: {
         display: 'flex',
         flexDirection: 'row',
-        marginBottom: 8,
         padding: 8,
         backgroundColor: 'white',
     },
@@ -200,7 +198,6 @@ const styles = {
     },
     textarea: {
         color: '#646464',
-        backgroundColor: '#E5E5E5',
         textAlignVertical: 'top',
         padding: 8,
         borderRadius: 8,
@@ -215,7 +212,11 @@ const styles = {
     },
     pickImageButton: {
         margin: 8,
-        backgroundColor: colors.gray,
+        backgroundColor: 'white',
+        borderColor: colors.gray,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderRadius: 12,
     },
 };
 export default CreatePostPage;
